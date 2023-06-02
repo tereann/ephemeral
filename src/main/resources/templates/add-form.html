@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Workshop</title>
+</head>
+<body>
+<h1>The Natural Dye Workshop</h1>
+<form th:action="@{/addWorkshop}" th:object="${workshop}" method="post">
+  <label>Workshop :</label>
+  <input type="text" th:field="*{title}" />
+  </br>
+
+  <label>Location :</label>
+  <input type="text" th:field="*{location}" />
+  </br>
+
+  <label>Places :</label>
+  <input type="number" th:field="*{places}" />
+  </br>
+
+  <input type="submit" value="Register" />
+
+</form>
+</body>
+</html>

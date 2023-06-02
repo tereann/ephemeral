@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href=/styles.css>
+<head>
+  <meta charset="UTF-8">
+  <title>Workshops</title>
+
+</head>
+<body>
+
+<h2>Welcome to our vibrant natural dye workshop,
+  where we'll explore the magical world of plant-based colors and unlock
+  the secrets of sustainable textile art.</h2>
+<h3></h3>
+<table>
+  <thead>
+  <tr>
+    <th>List of Workshops</th>
+    <th>Location</th>
+    <th>Places</th>
+    <th></th>
+    <th></th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="workshop : ${workshops}">
+    <td th:text="${workshop.title}"></td>
+    <td th:text="${workshop.location}"></td>
+    <td th:text="${workshop.places}"></td>
+    <td>
+      <button th:onclick="|window.location='/workshop/${workshop.id}'|">Edit</button>
+    </td>
+    <td>
+      <form th:action="@{/workshop/{id}/delete(id=${workshop.id})}" method="post">
+        <input type="hidden" name="deleteWorkshop" value="DELETE" />
+        <button type="submit">Delete</button>
+      </form>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div id="bottom-add"><button id="btn-add" type="button" onclick="window.location.href='form'">Add a workshop</button></div>
+
+
+
+
+
+</body>
+</html>

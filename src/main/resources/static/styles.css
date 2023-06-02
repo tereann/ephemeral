@@ -1,0 +1,12 @@
+html {
+    background-color: #c3d7d8;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+.carousel-image {
+    width: max-content;
+    height: 300px;
+    object-fit: cover; /* Optional: To maintain aspect ratio and fill the container */
+}

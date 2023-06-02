@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Festival</title>
+</head>
+<body>
+<div th:fragment="single-workshop (workshop)" class="box-workshop">
+
+    <h1>Edit</h1>
+
+    <div class="form">
+        <form th:action="@{/workshop/save}" th:object="${workshop}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <label>Workshop:</label>
+            <input type="text" th:field="*{title}">
+            <br/>
+
+            <label>Location:</label>
+            <input type="text" th:field="*{location}">
+            <br/>
+
+            <label>Places:</label>
+            <input type="text" th:field="*{places}">
+            <br/>
+
+            <!-- <label>Latitude:</label>
+            <input type="text" th:field="*{lat}">
+            <label>Longitude:</label>
+            <input type="text" th:field="*{lon}"> -->
+            <input type="submit" value="Save"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
