@@ -1,12 +1,97 @@
 html {
-    background-color: #c3d7d8;
+    background-color: antiquewhite;
     width: 100%;
-    height: 100%;
-    max-height: 100%;
+    height: max-content;
+}
+
+body{
+    background-color: #c3d7d8;
+}
+
+#header-container {
+    width: 100%;
+    height: max-content;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+}
+
+#navbar-top {
+    width: 100%;
+    height: 50px;
+    background-color: #efede8;
+
+}
+#nav-items-container {
+    float: right;
+    width: fit-content;
+    margin-top: 10px;
+}
+.nav-links {
+    margin-right: 20px;
+    color: #c59053;
+}
+
+#left-title {
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+}
+
+#slideshow {
+    float: right;
+    margin-right: auto;
+    width: 70%;
 }
 
 .carousel-image {
-    width: max-content;
+    width: 100%;
     height: 300px;
     object-fit: cover; /* Optional: To maintain aspect ratio and fill the container */
+    /* vertical-align: top */
+    /*object-position: bottom;*/
 }
+
+.carousel {
+    flex: 1;
+}
+#h2-container {
+    background-color: #efede8;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+h2 {
+    color: black;
+    margin-top: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 10px;
+    border: none;
+}
+
+.btn {
+    background-color: #c59053;
+}
+
+#bottom-add {
+    align-content: center;
+}
+
+#footer {
+    background-color: lightyellow;
+    height: 20%;
+    width: 100%
+}
+

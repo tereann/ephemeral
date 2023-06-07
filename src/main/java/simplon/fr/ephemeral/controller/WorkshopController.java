@@ -60,8 +60,19 @@ public class WorkshopController {
         return "redirect:/";
     }
 
+    @GetMapping("/workshop/form")
+    public String getFormEdit(Model model) {
+            model.addAttribute("workshop", new Workshop());
+            return "add-form";
+        }
+
     @PostMapping("workshop/{id}/delete")
     public String deleteWorkshop(@PathVariable long id) {repo.deleteById(id);
         return "redirect:/";
+    }
+
+    @GetMapping("/aboutUs")
+    public String aboutUs() {
+        return "aboutUs";
     }
 }
