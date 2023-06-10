@@ -1,55 +1,60 @@
 html {
-    background-color: antiquewhite;
+    background-color: white;
     width: 100%;
     height: max-content;
 }
 
 body{
-    background-color: #c3d7d8;
-}
-
-#header-container {
-    width: 100%;
-    height: max-content;
-    object-fit: cover;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: white;
 }
 
-#navbar-top {
-    width: 100%;
-    height: 50px;
-    background-color: #efede8;
+.navbar-brand {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
 
 }
-#nav-items-container {
-    float: right;
-    width: fit-content;
-    margin-top: 10px;
-}
-.nav-links {
-    margin-right: 20px;
-    color: #c59053;
+
+.nav-item {
+    font-family: "Calibri Light";
+    font-size: 20px;
 }
 
-#left-title {
-    float: left;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 20px;
+.h1 {
+font-size: 30px;
+}
+
+.h2 {
+    font-size: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .responsive-header {
+        font-size: 6vw; /* Adjust the value as needed */
+    }
 }
 
 #slideshow {
     float: right;
     margin-right: auto;
-    width: 70%;
+    width: 100%;
+}
+
+.carousel-inner {
+    height: 0;
+    padding-bottom: 25%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .carousel-image {
-    width: 100%;
-    height: 300px;
+    height: 100%;
     object-fit: cover; /* Optional: To maintain aspect ratio and fill the container */
     /* vertical-align: top */
     /*object-position: bottom;*/
@@ -58,21 +63,13 @@ body{
 .carousel {
     flex: 1;
 }
-#h2-container {
-    background-color: #efede8;
-    text-align: center;
-    width: 70%;
-    margin: auto;
-}
-h2 {
-    color: black;
-    margin-top: 10px;
-}
 
 table {
     border-collapse: collapse;
     margin: 20px auto;
     text-align: center;
+    font-family: Calibri;
+    font-size: 15px;
 }
 
 th,
@@ -83,15 +80,17 @@ td {
 
 .btn {
     background-color: #c59053;
+    font-size: 15px;
 }
 
 #bottom-add {
     align-content: center;
 }
 
-#footer {
-    background-color: lightyellow;
-    height: 20%;
-    width: 100%
+footer.container {
+    height: 30px;
+    background-color: #efede8;
 }
+
+
 

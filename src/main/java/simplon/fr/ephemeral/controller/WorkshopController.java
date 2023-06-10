@@ -38,6 +38,13 @@ public class WorkshopController {
         return "index";
     }
 
+    @GetMapping ("/manage-workshops")
+    public String getManageWorkshops(Model model) {
+        List<Workshop> workshops = workshopDao.getAllWorkshops();
+        model.addAttribute("workshops", workshops);
+        return "manage-workshops";
+    }
+
     @GetMapping("/workshop/{id}")
     public String getWorkshopById(@PathVariable Long id, Model model) {
         Optional<Workshop> optionalWorkshop = repo.findById(id);
@@ -74,5 +81,11 @@ public class WorkshopController {
     @GetMapping("/aboutUs")
     public String aboutUs() {
         return "aboutUs";
+    }
+
+
+    @GetMapping("/booking")
+    public String makeBooking() {
+        return "booking";
     }
 }

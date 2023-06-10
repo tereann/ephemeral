@@ -14,23 +14,50 @@
 
 </head>
 
-<body class="p-3 m-1 border-1">
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
 <header th:replace= "~{fragment-header :: header}"></header>
 
-<div class="container-fluid">
+<div class="container-fluid text-align-center">
     <div class="row">
-        <h2>Welcome to our vibrant natural dye workshop,
-            where we'll explore the magical world of plant-based colors and unlock
-            the secrets of sustainable textile art.</h2>
+        <p class="h2 lead align-text-center">Let people know of any new workshops or changes to your existing ones.</p>
     </div>
 </div>
 
-<div id="footer">
-    <a href="https://www.instagram.com/ephemeral___art/" target="_blank">insta</a>
-    <a href="https://www.facebook.com/art.ephemeral" target="_blank">fb</a>
-    <a href="/logout">logout</a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">List of Workshops</th>
+        <th scope="col">Location</th>
+        <th scope="col">Places</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="workshop : ${workshops}">
+        <td th:text="${workshop.title}"></td>
+        <td th:text="${workshop.location}"></td>
+        <td th:text="${workshop.places}"></td>
+        <td>
+            <button class="btn edit" th:onclick="|window.location='/workshop/${workshop.id}'|">Edit</button>
+        </td>
+        <td>
+            <form th:action="@{/workshop/{id}/delete(id=${workshop.id})}" method="post">
+                <input type="hidden" name="deleteWorkshop" value="DELETE"/>
+                <button class="btn delete" type="submit">Delete</button>
+            </form>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="container">
+    <button class="btn add" type="button" onclick="window.location.href='form'">Add a workshop</button>
 </div>
+
+<footer th:replace= "~{fragment-footer :: footer}"></footer>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

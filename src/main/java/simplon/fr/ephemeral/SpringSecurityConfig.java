@@ -25,13 +25,22 @@ public class SpringSecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/booking").permitAll()
+                .requestMatchers(HttpMethod.GET, "/aboutUs").permitAll()
+                .requestMatchers(HttpMethod.GET, "/manage-workshops").authenticated()
                 .requestMatchers(HttpMethod.POST, "/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/**").authenticated()
                 .and().formLogin()
+                .and().logout() // Configure logout
+                .logoutUrl("/logout") // Specify the logout URL
+                .logoutSuccessUrl("/") // Redirect to the login page with a logout parameter
+                .invalidateHttpSession(true) // Invalidate the HttpSession on logout
+                .deleteCookies("JSESSIONID") // Delete the session cookie
                 .and().build();
 
     }
+
 
     @Autowired
     private javax.sql.DataSource datasource;

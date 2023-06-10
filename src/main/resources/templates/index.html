@@ -2,63 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 
     <title>Natural Dye Workshops</title>
 
 </head>
 
-<body>
-<header>
-    <div id="navbar-top">
-        <div id="nav-items-container">
-            <a class="nav-links" href="/">Home</a>
-            <a class="nav-links" href="/aboutUs">About Us</a>
-            <a class="nav-links" href="/aboutUs">Book Now</a>
-        </div>
-    </div>
-    <div id="header-container">
-        <div id="left-title">
-        <h1>THE </br>
-            NATURAL DYE </br>
-            WORKSHOP</h1>
-        </div>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
-        <div id="slideshow" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../images/ephemeral.jpg" class="d-block w-100 carousel-image" alt="Image 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="../images/ephemeral2.jpg" class="d-block w-100 carousel-image" alt="Image 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="../images/ephemeral3.jpg" class="d-block w-100 carousel-image" alt="Image 3">
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<header th:replace= "~{fragment-header :: header}"></header>
 
-<div id="h2-container">
-<h2>Welcome to our vibrant natural dye workshop,
-    where we'll explore the magical world of plant-based colors and unlock
-    the secrets of sustainable textile art.</h2>
+<div class="container-fluid text-align-center">
+    <div class="row">
+        <p class="h2 lead text-center">Welcome to our vibrant natural dye workshop,
+            where we'll explore the magical world of plant-based colors and unlock
+            the secrets of sustainable textile art.</p>
+    </div>
 </div>
 
-<table>
+<table class="table table-hover">
     <thead>
     <tr>
-        <th>List of Workshops</th>
-        <th>Location</th>
-        <th>Places</th>
-        <th></th>
-        <th></th>
-
-
+        <th scope="col">List of Workshops</th>
+        <th scope="col">Location</th>
+        <th scope="col">Places</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -67,27 +41,17 @@
         <td th:text="${workshop.location}"></td>
         <td th:text="${workshop.places}"></td>
         <td>
-            <button class="btn edit" th:onclick="|window.location='/workshop/${workshop.id}'|">Edit</button>
-        </td>
-        <td>
-            <form th:action="@{/workshop/{id}/delete(id=${workshop.id})}" method="post">
-                <input type="hidden" name="deleteWorkshop" value="DELETE"/>
-                <button class="btn delete" type="submit">Delete</button>
-            </form>
-
+            <button class="btn book" th:onclick="|window.location='booking'|">Book</button>
         </td>
     </tr>
     </tbody>
 </table>
 
-<div id="bottom-add">
-    <button class="btn add" type="button" onclick="window.location.href='form'">Add a workshop</button>
+<div class="container">
+    <button class="btn manage workshop" type="button" onclick="window.location.href='manage-workshops'">Manage workshops</button>
 </div>
 
-<div id="footer">
-        <a href="https://www.instagram.com/ephemeral___art/" target="_blank">insta</a>
-        <a href="https://www.facebook.com/art.ephemeral" target="_blank">fb</a>
-</div>
+<footer th:replace= "~{fragment-footer :: footer}"></footer>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -107,5 +71,6 @@
         });
     });
 </script>
+
 </body>
 </html>
