@@ -18,33 +18,35 @@
 
 <body>
 
-<header th:replace= "~{fragment-header :: header}"></header>
+<header th:replace="~{fragment-header :: header}"></header>
 
-<p class="h2">Workshop details</p>
+<div class="container text-center">
 
-<div class="form">
-    <form th:action="@{/workshop/save}" th:object="${workshop}" method="post">
-        <input type="hidden" th:field="*{id}">
+    <p class="h2">Workshop details</p>
 
-        <label>Workshop:</label>
-        <input type="text" th:field="*{title}">
-        <br/>
+    <div class="form">
+        <form th:action="@{/workshop/save}" th:object="${workshop}" method="post">
+            <input type="hidden" th:field="*{id}">
 
-        <label>Location:</label>
-        <input type="text" th:field="*{location}">
-        <br/>
+            <label>Workshop:</label>
+            <input type="text" th:field="*{title}">
+            <br/>
 
-        <label>Places:</label>
-        <input type="text" th:field="*{places}">
-        <br/>
+            <label>Location:</label>
+            <input type="text" th:field="*{location}">
+            <br/>
 
-        <input type="submit" value="Save"/>
-    </form>
+            <label>Places:</label>
+            <input type="text" th:field="*{places}">
+            <br/>
+
+            <input type="submit" value="Save"/>
+        </form>
+    </div>
 </div>
-</div>
 
-<div id="bottom-add">
-    <button id="btn-add" type="button" onclick="window.location.href='form'">Add a workshop</button>
+<div class="container text-center">
+    <button class="btn add" type="button" onclick="window.location.href='form'">Add a workshop</button>
 </div>
 
 <footer>

@@ -11,12 +11,14 @@ body{
 .navbar-brand {
     font-family: 'Dancing Script', cursive;
     font-size: 25px;
+    color: #c59053;
 
 }
 
 .nav-item {
     font-family: "Calibri Light";
     font-size: 20px;
+    color: black;
 }
 
 .h1 {
@@ -92,5 +94,11 @@ footer.container {
     background-color: #efede8;
 }
 
+.icon {
+    fill: #c59053;
+}
 
+.container.h2 {
+    max-width: 90%;
+}
 

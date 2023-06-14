@@ -28,7 +28,7 @@ public class WorkshopController {
     @PostMapping("/addWorkshop")
     public String registerWorkshop(@ModelAttribute("workshop") Workshop workshop) {
         workshopDao.saveWorkshop(workshop.getTitle(), workshop.getLocation(), workshop.getPlaces());
-        return "redirect:/";
+        return "redirect:/manage-workshops";
     }
 
     @GetMapping ("/")
@@ -64,7 +64,7 @@ public class WorkshopController {
         workshop.setPlaces(editedWorkshop.getPlaces());
 
         repo.save(workshop);
-        return "redirect:/";
+        return "redirect:/manage-workshops";
     }
 
     @GetMapping("/workshop/form")
@@ -75,7 +75,7 @@ public class WorkshopController {
 
     @PostMapping("workshop/{id}/delete")
     public String deleteWorkshop(@PathVariable long id) {repo.deleteById(id);
-        return "redirect:/";
+        return "redirect:/manage-workshops";
     }
 
     @GetMapping("/aboutUs")
